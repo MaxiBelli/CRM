@@ -1,6 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { obtenercustomers } from "../data/customers";
-import customer from "../components/customer";
+import Customer from "../components/Customer";
 
 export function loader() {
   const customers = [
@@ -9,35 +8,35 @@ export function loader() {
       name: "John",
       phone: 102013313,
       email: "john@email.com",
-      company: "My Company",
+      company: "Your Company",
     },
     {
       id: 2,
       name: "Karen",
       phone: 138198313,
       email: "karen@email.com",
-      company: "My Company",
+      company: "Your Company",
     },
     {
       id: 3,
       name: "Josue",
       phone: 31983913,
       email: "josue@email.com",
-      company: "My Company",
+      company: "Your Company",
     },
     {
       id: 4,
       name: "Michael",
       phone: 319381983,
       email: "miguel@email.com",
-      company: "My Company",
+      company: "Your Company",
     },
     {
       id: 5,
       name: "Peter",
       phone: 1398198938,
       email: "pedro@email.com",
-      company: "My Company",
+      company: "Your Company",
     },
   ];
   return customers;
@@ -62,7 +61,7 @@ function Index() {
 
           <tbody>
             {customers.map((customer) => (
-              <customer customer={customer} key={customer.id} />
+              <Customer customer={customer} key={customer.id} />
             ))}
           </tbody>
         </table>
