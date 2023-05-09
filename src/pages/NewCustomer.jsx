@@ -1,5 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Form } from "react-router-dom";
 import Form from "../components/Form";
+
+export async function action() {
+  console.log("Submit to form...")
+ 
+}
+
 
 function NewCustomer() {
   const navigate = useNavigate();
@@ -18,7 +24,7 @@ function NewCustomer() {
       </div>
 
       <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-20">
-        <form>
+        <Form>
           <Form />
 
           <input
@@ -26,7 +32,7 @@ function NewCustomer() {
             className="mt-5 w-full bg-blue-800 p-3 uppercase font-bold text-white text-lg"
             value="Register Customer"
           />
-        </form>
+        </Form>
       </div>
     </>
   );
