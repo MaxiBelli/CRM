@@ -1,4 +1,4 @@
-import { useNavigate, Form, useActionData } from "react-router-dom";
+import { useNavigate, Form as RouterForm, useActionData } from "react-router-dom";
 import Form from "../components/Form";
 import Error from "../components/Error";
 
@@ -47,14 +47,14 @@ function NewCustomer() {
         {errors?.length &&
           errors.map((error, i) => <Error key={i}>{error}</Error>)}
 
-        <Form method="post" noValidate>
+        <RouterForm method="post" noValidate>
           <Form />
           <input
             type="submit"
             className="mt-5 w-full bg-blue-800 p-3 uppercase font-bold text-white text-lg"
             value="Register Customer"
           />
-        </Form>
+        </RouterForm>
       </div>
     </>
   );
