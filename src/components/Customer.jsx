@@ -8,15 +8,15 @@ export async function action({ params }) {
 
 function Customer({ customer }) {
   const navigate = useNavigate();
-  const { name, company, email, phone, id } = customer;
+  const { id, name, company, email, phone, notes } = customer;
 
   return (
     <tr className="border-b">
-      <td className="p-6 space-y-2">
+      <td className="max-w-[8rem] p-6 pl-20 space-y-2">
         <p className="text-2xl text-gray-800">{name}</p>
         <p>{company}</p>
       </td>
-      <td className="p-6">
+      <td className=" max-w-[12rem] pl-20 p-6 ">
         <p className="text-gray-600">
           {" "}
           <span className="text-gray-800 uppercase font-bold">Email: </span>
@@ -28,7 +28,8 @@ function Customer({ customer }) {
           {phone}{" "}
         </p>
       </td>
-      <td className="p-6 flex gap-3 justify-end">
+      <td className="max-w-[12rem]">{notes}</td>
+      <td className="p-6 flex gap-3 justify-center">
         <button
           type="button"
           className="text-blue-600 hover:text-blue-700 uppercase font-bold text-xs"

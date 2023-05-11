@@ -52,7 +52,7 @@ function NewCustomer() {
         </button>
       </div>
 
-      <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-20">
+      <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-10">
         {errors?.length &&
           errors.map((error, i) => <Error key={i}>{error}</Error>)}
 

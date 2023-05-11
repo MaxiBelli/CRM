@@ -21,6 +21,7 @@ function Index() {
             <tr>
               <th className="p-2">Customer</th>
               <th className="p-2">Contact</th>
+              <th className="p-2">Notes</th>
               <th className="p-2">Actions</th>
             </tr>
           </thead>
