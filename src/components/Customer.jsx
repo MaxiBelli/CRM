@@ -1,9 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Form as RouterForm, redirect } from "react-router-dom";
+import { deleteCustomer } from "../data/customers";
+
+export async function action({ params }) {
+  await deleteCustomer(params.customerId);
+  return redirect("/");
+}
 
 function Customer({ customer }) {
-
-const navigate = useNavigate()
-
+  const navigate = useNavigate();
   const { name, company, email, phone, id } = customer;
 
   return (
@@ -32,12 +36,22 @@ const navigate = useNavigate()
         >
           Edit
         </button>
-        <button
-          type="submit"
-          className="text-red-600 hover:text-red-700 uppercase font-bold text-xs "
+        <RouterForm
+          method="post"
+          action={`/customers/${id}/delete`}
+          onSubmit={(e) => {
+            if (!confirm("Do you want to delete this record?")) {
+              e.preventDefault();
+            }
+          }}
         >
-          Delete
-        </button>
+          <button
+            type="submit"
+            className="text-red-600 hover:text-red-700 uppercase font-bold text-xs "
+          >
+            Delete
+          </button>
+        </RouterForm>
       </td>
     </tr>
   );

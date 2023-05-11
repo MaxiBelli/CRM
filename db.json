@@ -5,43 +5,49 @@
       "name": "John",
       "phone": 102013313,
       "email": "john@email.com",
-      "company": "Your Company"
+      "company": "ServerUI",
+      "notes": "The Customer requests the service of an ecommerce."
     },
+
     {
       "id": 2,
-      "name": "Karen",
-      "phone": 138198313,
-      "email": "karen@email.com",
-      "company": "Your Company"
+      "name": "Alice",
+      "phone": 2021234567,
+      "email": "alice@gmail.com",
+      "company": "OnlineRetail",
+      "notes": "The customer is interested in adding a new product line."
     },
     {
       "id": 3,
-      "name": "Josue",
-      "phone": 31983913,
-      "email": "josue@email.com",
-      "company": "Your Company"
+      "name": "David",
+      "phone": 3039876543,
+      "email": "david@hotmail.com",
+      "company": "TechnologyCorp",
+      "notes": "The customer is a current user of our software and needs assistance with a technical issue."
     },
     {
       "id": 4,
-      "name": "Michael",
-      "phone": 319381983,
-      "email": "miguel@email.com",
-      "company": "Your Company"
+      "name": "Sarah",
+      "phone": 4045551212,
+      "email": "sarah@yahoo.com",
+      "company": "MarketingInc",
+      "notes": "The customer wants to schedule a consultation to discuss our marketing services."
     },
     {
       "id": 5,
-      "name": "Peter",
-      "phone": 1398198938,
-      "email": "pedro@email.com",
-      "company": "Your Company"
+      "name": "Robert",
+      "phone": 5054445555,
+      "email": "robert@gmail.com",
+      "company": "RealEstateCo",
+      "notes": "The customer is looking to buy a commercial property and needs a broker."
     },
     {
-      "name": "Maximiliano",
-      "company": "MaxCompany",
-      "email": "maximiliano_belli@hotmail.com",
-      "phone": "03472447829",
-      "notes": "Notes",
-      "id": 6
+      "id": 6,
+      "name": "Sophie",
+      "phone": 6063334444,
+      "email": "sophie@hotmail.com",
+      "company": "TravelAgency",
+      "notes": "The customer wants to plan a trip to Europe and needs assistance with flights and accommodations."
     }
   ]
 }

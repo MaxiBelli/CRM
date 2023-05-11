@@ -2,9 +2,12 @@ import {
   Form as RouterForm,
   useNavigate,
   useLoaderData,
+  useActionData,
+  redirect,
 } from "react-router-dom";
-import { getCustomer } from "../data/customers";
-import Form from "../components/Formulario";
+import { getCustomer, updateCustomer } from "../data/customers";
+import Form from "../components/Form";
+import Error from "../components/Error";
 
 export async function loader({ params }) {
   const customer = await getCustomer(params.customerId);
@@ -17,9 +20,38 @@ export async function loader({ params }) {
   return customer;
 }
 
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  const email = formData.get("email");
+
+  // Validation
+  const errors = [];
+  if (Object.values(data).includes("")) {
+    errors.push("All fields are required");
+  }
+
+  let regex = new RegExp(
+    "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])"
+  );
+  if (!regex.test(email)) {
+    errors.push("The email is not valid");
+  }
+
+  // Return data if there are errors
+  if (Object.keys(errors).length) {
+    return errors;
+  }
+
+  // Update the customer
+  await updateCustomer(params.customerId, data);
+  return redirect("/");
+}
+
 function EditCustomer() {
   const navigate = useNavigate();
   const customer = useLoaderData();
+  const errors = useActionData();
 
   return (
     <>
@@ -36,6 +68,9 @@ function EditCustomer() {
       </div>
 
       <div className="bg-white shadow rounded-md md:w-3/4 mx-auto px-5 py-10 mt-20">
+        {errors?.length &&
+          errors.map((error, i) => <Error key={i}>{error}</Error>)}
+
         <RouterForm method="post" noValidate>
           <Form customer={customer} />
 
