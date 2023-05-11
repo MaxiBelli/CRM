@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
-import NewCustomer , {action as newCustomerAction } from "./pages/NewCustomer";
-import Index , { loader as customersLoader } from './pages/Index'
-import ErrorPage from './components/ErrorPage'
+import NewCustomer, { action as newCustomerAction } from "./pages/NewCustomer";
+import Index, { loader as customersLoader } from "./pages/Index";
+import ErrorPage from "./components/ErrorPage";
+import EditCustormer from "./pages/EditCustomer";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +17,18 @@ const router = createBrowserRouter([
         index: true,
         element: <Index />,
         loader: customersLoader,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
       },
       {
         path: "/customers/new",
         element: <NewCustomer />,
         action: newCustomerAction,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/customers/:customersId/edit",
+        element: <EditCustormer />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
